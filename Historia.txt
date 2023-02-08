@@ -1,2 +1,3 @@
-James Nope
+Mi nombre es James Nope.
+
 Repaso del curso de Git
