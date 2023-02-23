@@ -1,4 +1,5 @@
 Mi nombre es James Nope.
+Soy desarrollador de sotfware.
 
 Repaso del curso de Git
 
