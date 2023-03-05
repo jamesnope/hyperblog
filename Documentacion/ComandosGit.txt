@@ -1,0 +1,145 @@
+--- LINEA DE COMANDOS LINUX - GIT BASH
+
+- Conocer la ubicacion de donde estoy
+pwd
+
+- Limpiar la consola
+clear 
+ctrl + l
+
+Listar archivos de la ubicacion en la que estoy
+ls 
+ls -a  => obtiene todos los archivos hasta los ocultos sin formato
+ls -l  => obtiene todos los archivos sin los ocultos en formato lista
+ls -a  => obtiene todos los archivos hasta los ocultos en formato lista
+
+Ir a un disco c => en linux
+cd /mnt/c
+Ir a un disco d
+cd /mnt/d
+
+- Crear una carpeta
+mkdir NombreCarpeta
+
+- Crear archivo vacio
+touch ArchivoVacio.txt
+
+- Mostrar el contenido de un archivo
+cat ArchivoVacio.txt
+
+- IMPORTANTE : VER TODOS LOS COMANDO QUE E ESCRITO HASTA EL MOMENTO
+history
+
+- Si quiero repetir un comando el history retorna un numero de comando se digita !numeroDeComando
+!30
+
+- Eliminar un archivo
+rm ArchivoVacio.txt
+
+
+-----------------------------------------------------------------------------------------------------------
+
+Git cuenta con 3 estados en los que es posible localizar archivos: Staged, Modified y Committed.
+
+1. Iniciar el repositorio
+git init
+
+2. Agragar el archivo
+git add ElArchivo.txt
+
+2.1 Agregar todos los archivos
+git add .
+
+3. Enviar ultimos cambios del archivo al repositorio del sistema de control de versiones
+git commit -m "Version 1"
+
+4. Ver estado del repositorio
+git status
+
+5. Ver todos los cambios historicos hechos (Que se hizo y quien hizo los cambios)
+git show
+
+6. Ver la historia de un arhivo
+git log ElArchivo.txt
+
+7. Enviar al repositorio remoto los cambios del commit
+git push
+
+8. Traer los ultimos cambios que tengamos en el repositorio remoto
+git pull
+
+9. Eliminar o excluir un archivo del git add .
+git rm --cached NombreArchivo.txt
+
+10. Ver la configuración del git en tu equipo
+git conifg
+git conifg --list
+
+10.1 Asignar el nombre y correo de usuario
+git config --global user.name "James Nope"
+git config --global user.email "jamesnope@gmail.com"
+
+11. Analizar cambios en los archivos de tu proyecto con Git
+git show NombreArchivo.txt
+
+NOTA: Si por algun motivo solo dimos el comando:
+git commit
+Se abrira otra ventana donde deberemos digitar el mesaje del commit y al finalizar debemos oprimir las teclas:
+esc + shift + z + z
+
+11.1 Para ver la diferencia entre un cambio y otro, primero debo:
+git log NombreArchivo.txt
+Esto nos dara los codigos de cada commit y con esos codigos utilizaremos el siguiente comando:
+git diff 496432b37cf1f2503db6833420c042e758503058 8a3768f7ceb53a9c0756ff5d5c696c80be5afb99
+comando + codigo commit primera version + codigo commit version mas reciente
+
+12. Volver en el tiempo en nuestro repositorio utilizando reset y checkout
+
+	12.1 git reset codigo del commit
+	- Tenemos dos tipos de Reset:  
+	- hard : todo vuelve al estado anterior (usualmente el mas utilizado), borrando toda la información que tengamos 
+	en el área de staging (y perdiendo todo para siempre)
+	git reset codigoDelCommit --hard
+	- soft: lo que  tengamos en staging (cambios en memoria) lo conservara y estara disponible para el proximo commit
+	git reset codigoDelCommit --soft
+
+Para ver los cambios especificos en todos los archivos modificados:
+git log --stat
+
+	12.2 git checkout codigoDelCommit
+	- Volvemos a los ajustes que se realizaron en ese commit, pero quedan pendientes por confirmar por commit
+	- Es decir que solo nos trae el archivo para visualizarlo y si queremos seguir en esa version del archivo
+	hacemos commit para dejar el o los archivos en ese estado, de lo contrario podemos hacer checkout a la version
+	que venimos trabajando y no perderemos cambios.
+
+13. Git reset vs. Git rm
+	git rm : Este comando nos ayuda a eliminar archivos de Git sin eliminar su historial del sistema de versiones. 
+	Esto quiere decir que si necesitamos recuperar el archivo solo debemos “viajar en el tiempo” y recuperar el 
+	último commit antes de borrar el archivo en cuestión.
+
+	git reset: Este comando nos ayuda a volver en el tiempo. Pero no como git checkout que nos deja ir, mirar, pasear
+ 	y volver. Con git reset volvemos al pasado sin la posibilidad de volver al futuro. Borramos la historia y la debemos 
+	sobreescribir. No hay vuelta atrás. Este comando es muy peligroso y debemos emplearlo solo en caso de emergencia.
+
+	- git reset --soft: Borramos todo el historial y los registros de Git pero guardamos los cambios que tengamos en 
+	Staging, así podemos aplicar las últimas actualizaciones a un nuevo commit.
+	- git reset --hard: Borra todo. Todo todito, absolutamente todo. Toda la información de los commits y del área de 
+	staging se borra del historial.
+	- git reset HEAD: Este es el comando para sacar archivos del área de staging. No para borrarlos ni nada de eso, 
+	solo para que los últimos cambios de estos archivos no se envíen al último commit, a menos que cambiemos de opinión 
+	y los incluyamos de nuevo en staging con git add, por supuesto.
+
+15. Para hacer un git add . y un git commit al tiempo puedo hacer uso del siguiente comando:
+	git commit -am "Commit al master del blogpost en su version mas reciente."
+	- Solo funciona a archivos a los que se les haya hecho git add previamente en otro commit
+	
+15.1	Crear un nuevo branch (rama):
+	git branch cabecera
+ 	Para cambiar de rama:
+	git checkout cabecera
+
+16.  Fusión de ramas con Git merge
+	- Para conocer las ramas existentes y en cual estoy parado, digito:
+	git branch
+	- Para hacer un merge me paro en la rama a la cual quiero traer los cambios y digito:
+	git merge cabecera 
