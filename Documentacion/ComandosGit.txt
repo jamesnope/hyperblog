@@ -189,4 +189,35 @@ git log --stat
 	7. Antes de subir el cambio debemos obtener los ultimos cambiemos de GitHub
 	git pull origin master
 	- Cuando nos pregunte si estamos de acuerdo con la nueva autorizacion aceptamos (yes)
-	8.
+	8. Agregamos y submos los cambios
+	git commit -am "Ajustes posteriores a la autenticación por SSH"
+	git push origin master
+
+23. Tags y versiones en Git y GitHub
+	1. Para ver el detalle grafico de las ramas mediante el Bash
+	git log --all --graph
+	2. Pra ver el datelle grafico comprimido desde el principio en Bash
+	git log --all --graph --decorate --oneline
+	3. Para crear un alias con el comando anterior 
+	alias comandograph="git log --all --graph --decorate --oneline"
+	4. luego cada vez que escribamos "comandograph" se ejecutara el comando asociado
+
+	5. Agregar un tag a un commit realizado previamente
+	- Comando + version + resumen de la version + codigo del commit
+	git tag -a v0.1 -m "Resultado de las primeras clases del curso" 7c77d6c
+	6. Para conocer todos los tag creados 
+	 git tag
+	7. Para conocer a que tag esta asociado que commit
+	 git show-ref --tags
+	8. Obtenemos y subimos las asignaciones de los tags
+	 git pull origin master
+	 git push origin --tags 
+	9. Eliminar un tag de manera local
+	 git tag => conocer los tags creados
+	 git tag -d nombreTag
+	 git pull origin master
+	 git push origin --tags 
+	10. Eliminar un tag de GitHub de manera permanente
+	 git push origin :refs/tags/nombreTag 
+
+24. Manejo de ramas en GitHub
