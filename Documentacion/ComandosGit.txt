@@ -143,3 +143,50 @@ git log --stat
 	git branch
 	- Para hacer un merge me paro en la rama a la cual quiero traer los cambios y digito:
 	git merge cabecera 
+
+19. Uso de GitHub
+	- Entrar a GitHub y crear un nuevo repositorio, en el boton verde de <>Code y copiar la URL del HTTPS.
+	- Para subir mi proyecto local a GitHub:
+	git remote add origin https://github.com/jamesnope/hyperblog.git
+
+	- Para confirmar damos
+	git remote 		=> Deberia mostrarnos la palabra origin
+	git remote -v		=> Deberia mostrarnos el detalle del origin 
+	- Debemos enviar los cambios de la rama master de GitHub
+	git push origin master
+
+	- Debemos obtener los cambios de la rama master de GitHub
+	git pull origin master
+	* NOTA: Si nos aparece alguna advertencia al momente de fusionar la rama local con la remota debemo utilizar:
+	git pull origin master --allow-unrelated-histories	
+
+20. Cómo funcionan las llaves públicas y privadas
+
+21. Configura tus llaves SSH en local
+	- Abrimos un nuevo git bash para asegurarnos que estamos en el home de la instalacion de linux
+	ssh-keygen -t rsa -b 4096 -C "jamesnope@gmail.com"
+	1. Luego de poner el comando nos va a mostrar la ubicacion de donde quedara el ssh => Damos enter
+	2. Nos va a pedir crear una contraseña adicional para el SSH => No es obligatoria pero si recomendada para mas seguridad
+	
+	- Ahora vamos a conecar nuestra llave publica con GitHub (Esto solo es para Windows y Linux)
+	1. Validar que el servidor de llaves SSH este prendido
+	eval $(ssh-agent -s) => El debe mostrarnos algo como (Agent pid 817) => agente proceso id y el numero
+	2. Con este simbolo "~" sabemos que estamos en el home, si estamos en otra carpeta y damos cd ~ ira al home
+	3. Debemos ir a la ruta donde estan los certificados generados para verificar que se encuentren en esta ruta
+	cd ~/.ssh
+	4. luego volvemos al home => cd ~
+	5. Vamos a agregar la llave que acabamos de crear (la privada)
+	ssh-add ~/.ssh/id_rsa
+
+22. Conexión a GitHub con SSH
+	1. Copiar la informaciondel certificado publico "C:\Users\JAMES\.ssh" => id_rsa.pub
+	2. Entrar a GitHub y dirigirnos a settings => SSH and GPG Keys
+	3. Dar Click en el boton New SSH Keys
+	4. Dar un nombre a la clave y pegar en el cuerpo el contenido del certificado publico
+	5. Cambiar la URL previamente configurada por HTTPS por la de SSH
+	git remote set-url origin git@github.com:jamesnope/hyperblog.git
+	6. Realizamos algún cambio para verificar el cambio de URL
+	7. Antes de subir el cambio debemos obtener los ultimos cambiemos de GitHub
+	git pull origin master
+	- Cuando nos pregunte si estamos de acuerdo con la nueva autorizacion aceptamos (yes)
+	8.
