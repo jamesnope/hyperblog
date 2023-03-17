@@ -221,3 +221,24 @@ git log --stat
 	 git push origin :refs/tags/nombreTag 
 
 24. Manejo de ramas en GitHub
+	1. Comando para ver detalle de las ramas
+	git show-branch 
+	2. Comando para ver detalle de las ramas con mas información
+	git show-branch --all
+	3. Para subir mi rama a el repositorio remoto
+	git push origin cabecera
+	4. Crear nuevas ramas
+	git checkout master => creamos las ramas con la rama mas reciente preferiblemente
+	git branch header 
+	git push origin header
+
+25. Configurar múltiples colaboradores en un repositorio de GitHub
+	Para ello debo entrar a el repo en github, luego a settings y luego dar permisos
+	a la persona que podra realizar cambios sobre el proyecto.
+
+26. Flujo de trabajo profesional: Haciendo merge de ramas de desarrollo a master
+	Para obtener una rama que yo no cree:
+	git pull origin footer
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+27. 
