@@ -237,8 +237,13 @@ git log --stat
 	a la persona que podra realizar cambios sobre el proyecto.
 
 26. Flujo de trabajo profesional: Haciendo merge de ramas de desarrollo a master
-	Para obtener una rama que yo no cree:
+	-Para obtener una rama que yo no cree:
 	git pull origin footer
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	
+	- Posterior a realizar los ajustes en las ramas respectivas 
+	(en este caso header y footer) y subir sus cambios a cada una de ellas,
+	procedemos a realizar el merge a la rama principal:
+	git merge header
 
 27. 
