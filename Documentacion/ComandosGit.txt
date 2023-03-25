@@ -245,5 +245,14 @@ git log --stat
 	(en este caso header y footer) y subir sus cambios a cada una de ellas,
 	procedemos a realizar el merge a la rama principal:
 	git merge header
+	git pull origin master
+	git push origin master
 
-27. 
+	git merge footer
+	git pull origin master
+	git push origin master
+
+27. Flujo de trabajo profesional con Pull requests
+
+28. Utilizando Pull Requests en GitHub
+
