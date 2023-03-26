@@ -298,4 +298,5 @@ git log --stat
 	Hicimos publico el sitio 
 	https://jamesnope.github.io/hyperblog/blogpost.html
 
-
+35. Git Rebase: reorganizando el trabajo realizado
+	
