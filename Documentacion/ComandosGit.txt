@@ -288,6 +288,14 @@ git log --stat
 	https://imgur.com/
 
 33. Readme.md es una excelente práctica
-	Sitio para crear de manera mas facil
+	Sitio para crear de manera mas facil el README
 	https://pandao.github.io/editor.md/en.html
-	
+
+34. Tu sitio web público con GitHub Pages
+	Aca tenemos el paso a paso oficial:
+	https://pages.github.com/
+
+	Hicimos publico el sitio 
+	https://jamesnope.github.io/hyperblog/blogpost.html
+
+
