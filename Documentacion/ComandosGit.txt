@@ -255,4 +255,33 @@ git log --stat
 27. Flujo de trabajo profesional con Pull requests
 
 28. Utilizando Pull Requests en GitHub
+	Posterior a realizar el PR nos cambiamos a la rama master:
+	git checkout origin master
+	// Nos cambiamos a la rama principal
+	git pull origin master
 
+29. Creando un Fork, contribuyendo a un repositorio.
+	Los forks o bifurcaciones son una característica única de GitHub en la que 
+	se crea una copia exacta del estado actual de un repositorio directamente en 
+	GitHub. Este repositorio podrá servir como otro origen y se podrá clonar 
+	(como cualquier otro repositorio). En pocas palabras, lo podremos utilizar 
+	como un nuevo repositorio git cualquiera.
+
+	- Cómo se hace un fork remoto desde consola en GitHub
+	git remote add <nombre_del_remoto> <url_del_remoto> 
+	git remote upstream https://github.com/freddier/hyperblog
+
+	- Al crear un remoto adicional, podremos hacer pull desde el nuevo origen. 
+	En caso de tener permisos, podremos hacer fetch y push.
+	git pull <remoto> <rama>
+	git pull upstream master
+
+	Y luego subimos los cambios que traimos a nuestro fork 
+	git push origin master
+
+30 . Haciendo deployment a un servidor.
+
+31. Hazme un pull request.
+
+32. Ignorar archivos en el repositorio con .gitignore
+	
