@@ -284,4 +284,10 @@ git log --stat
 31. Hazme un pull request.
 
 32. Ignorar archivos en el repositorio con .gitignore
+	Se recomienda no subir imagenes al repo, es una mala practica.
+	https://imgur.com/
+
+33. Readme.md es una excelente práctica
+	Sitio para crear de manera mas facil
+	https://pandao.github.io/editor.md/en.html
 	
