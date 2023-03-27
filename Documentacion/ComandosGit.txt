@@ -299,4 +299,32 @@ git log --stat
 	https://jamesnope.github.io/hyperblog/blogpost.html
 
 35. Git Rebase: reorganizando el trabajo realizado
+	- Se crea una nueva rama
+	- Se realza el ajuste y se sube
+	- Se hace el rebase a esta rama con master
+	git rebase master
 	
+	- Luego pasamos a la rama master y hacemos el rebase
+	git rebase LaOtraRama
+
+36.  Git Stash: Guardar cambios en memoria y recuperarlos después
+	- Realizo el cambio y si quiero cambiar de rama sin subir
+	los ultimos cambios, los puedo dejar en memoria con:
+	git stash
+	- Puedo ver los stash con 
+	git stash list 
+	- Puedo cambiar de rama
+	git checkout LaOtraRama
+	- Verifico lo que tengo que verificar y vuelvo a la 
+	rama anterior:	
+	git checkout master
+	- Recupero los cambios con
+	git stash pop
+	- Pasar un stash a una rama
+	git stash branch nombre-rama
+	- Subo los cambios a la nueva rama con los cambios del stash
+	git commit -am "Mensaje para los cambios del stash"
+	
+	- Si quiero borrar un Stash
+	git stash drop
+
