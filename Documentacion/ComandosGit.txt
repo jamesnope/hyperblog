@@ -328,3 +328,70 @@ git log --stat
 	- Si quiero borrar un Stash
 	git stash drop
 
+37. Git Clean: limpiar tu proyecto de archivos no deseados
+	- Mientras estamos trabajando en un repositorio podemos añadir
+	archivos a él, que realmente no forma parte de nuestro 
+	directorio de trabajo, archivos que no se deberían de agregar al 
+	repositorio remoto.
+	- Para saber que va a remover digitamos:
+	git clean --dry-run
+	- Para borrar lo que nos indico el comando anterior:
+	git clean -f
+	- NOTA: este comando no borra carpetas ni imagenes o lo que tengamos
+	mapeado en el gitignore
+
+38. Git cherry-pick: traer commits viejos al head de un branch
+	- Git Cherry-pick es un comando que permite tomar uno o varios commits 
+	de otra rama o branch sin tener que hacer un merge completo.  Así, gracias 
+	a cherry-pick, podríamos aplicar los commits relacionados con nuestra 
+	funcionalidad en la rama master sin necesidad de hacer un merge.
+	git cherry-pick codigoDelCommit
+	- NOTA: Recordemos que para obtener ese id digitamos
+	git log --oneline
+	- Luego debemos hacer un push
+	- NOTA: Recordar que al momento de hacer merge nos va a aparecer un conflicto
+	ya que las dos ramas van a tener el contenido que trajimos con cherry-pick
+
+39. Git Reset y Reflog: úsese en caso de emergencia
+	- Git guarda todos los cambios aunque decidas borrarlos, al borrar un cambio 
+	lo que estás haciendo sólo es actualizar la punta del branch, para gestionar 
+	éstas puntas existe un mecanismo llamado registros de referencia.
+	- COMANDO PARA VER TODOS TODOS LOS CAMBIOS, HASTA LO QUE SE LE HA HECHO reset
+	git reflog => Este comendo no pierde nada.
+	- Este comando nos arroja la información de los HEAD seguido del codigo del commit
+	- Opciones para hacer el reset con la info del HEAD
+	git reset --SOFT => Mantiene todo lo que tengamos en staged
+	git reset --HARD => Resetea todo (recomendado)
+	git reset -- HARD INFO-HEAD o git reset -- HARD codigo-commit 
+
+40. Reconstruir commits en Git con amend
+	- amend => REMENDAR UN COMMIT => me va a tomar los ultimo cambios y se los va a 
+	adicionar al commit anterior.
+	git commit --amed
+
+41. Buscar en archivos y commits de Git con Grep y log
+	git grep Palabra-a-buscar
+	- Para saber en que archivo y que linea digito
+	git grep -n Palabra-a-buscar
+	- Contar la cantidad de veces que una palabra ocurre
+	git grep -c Palabra-a-buscar
+	- Si no funciona ponemos la palabra dentro de comillas
+	git grep -n "Palabra-a-buscar"
+
+	- BUSCAR la palabra en la historia de los commit
+	git log -S "Palabra-a-buscar"
+
+42. Comandos y recursos colaborativos en Git y GitHub
+	- Cuantos commit ha hecho cada miembro del equipo
+
+	git shortlog -sn: muestra cuantos commit han hecho cada miembro del equipo.
+	git shortlog -sn --all: muestra cuantos commit han hecho cada miembro del equipo, hasta los que han sido eliminados.
+	git shortlog -sn --all --no-merge: muestra cuantos commit ha hecho cada miembro, quitando los eliminados sin los merges.
+	git blame ARCHIVO: muestra quien hizo cada cosa línea por línea.
+	git COMANDO --help:muestra como funciona el comando.
+	git blame ARCHIVO -Llinea_inicial,linea_final: muestra quien hizo cada cosa línea por línea, indicándole desde qué línea ver. Ejemplo -L35,50.
+	git branch -r: se muestran todas las ramas remotas.
+	git branch -a: se muestran todas las ramas, tanto locales como remotas.
+
+43. Tu futuro con Git y GitHub
+	¿Qué puedes hacer con gitk? => Ver el reflog en una interfaz visual
